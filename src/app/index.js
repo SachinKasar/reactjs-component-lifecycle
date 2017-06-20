@@ -1,14 +1,14 @@
 import React from "react";
 import {render} from "react-dom";
 
-import {TwoWheel} from "./components/TwoWheel";
-import {FourWheel} from "./components/FourWheel";
+import {TwoWheeler} from "./components/TwoWheeler";
+import {FourWheeler} from "./components/FourWheeler";
 
 class App extends React.Component {
 	constructor () {
 		super()
 		this.state = {
-			visitor:'XYZ',
+			visitor:'Visitor 1',
 			shouldMount:true
 		}
 		this.handleVisitor = this.handleVisitor.bind(this);
@@ -36,8 +36,9 @@ class App extends React.Component {
 		let twoWheelSpecs = {manufacturer : "Royal Enfield"};
 		let fourWheelSpecs = {manufacturer : "Maruti Suzuki"};
 		let twoWheelComponent = "";
+		
 		if(this.state.shouldMount) {
-			twoWheelComponent = (<TwoWheel 
+			twoWheelComponent = (<TwoWheeler 
 							       name="Enfield Classic" 
 								   specs={twoWheelSpecs} 
 								   price="0" ariom
@@ -47,7 +48,7 @@ class App extends React.Component {
 		}
 		
         return ( 
-			<div>
+			<div style={{border: '5px solid grey'}}>
 				 <div className="container">
 					<div className="row">
 						<div className="row">
@@ -59,14 +60,18 @@ class App extends React.Component {
 				  <div className="container">
 					<div className="row">
 						<div className="row">
-							<FourWheel 
+							<FourWheeler 
 								name="Grand Vitara" 
 								specs={fourWheelSpecs} 
 								visitor={this.state.visitor}/>
 						</div>
 					</div>
+					
+					<div className="btn-group btn-group-sm">
+						<button onClick={this.handleMountOnChange} className="btn btn-primary" >Mount/Unmount</button>
+				    </div>
 				  </div>
-				  <br/><br/><button onClick={this.handleMountOnChange} className="btn btn-primary" >Mount/Unmount</button>
+				  
 			  </div>
         );
     } 
