@@ -41,29 +41,25 @@ class App extends React.Component {
 			twoWheelComponent = (<TwoWheeler 
 							       name="Enfield Classic" 
 								   specs={twoWheelSpecs} 
-								   price="0" ariom
+								   price="0"  
 								   greet={this.greetCustomer} 
 								   visitor={this.state.visitor}
 								   changeVisitor={this.handleVisitor}/>);
 		}
 		
         return ( 
-			<div style={{border: '5px solid grey'}}>
-				 <div className="container">
-					<div className="row">
-						<div className="row">
+			<div className="container">
+                <div className="row col-xs-10 col-xs-offset-1 alert alert-success">
+				    <br/>   
+                    <div className="row">
+                      <div className="col-xs-10 col-xs-offset-1" >
 						{twoWheelComponent}
 						</div>
-					</div>
-				  </div>
-				  <hr/>
-				  <div className="container">
-					<div className="row">
-						<div className="row">
-							<FourWheeler 
-								name="Grand Vitara" 
-								specs={fourWheelSpecs} 
-								visitor={this.state.visitor}/>
+					</div> <br/>
+            
+				   <div className="row">
+                      <div className="col-xs-10 col-xs-offset-1" >
+							
 						</div>
 					</div>
 					
