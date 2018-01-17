@@ -5,15 +5,17 @@ import {render} from "react-dom";
 export class TwoWheeler extends React.Component {
 	constructor(props) {
 		super();
-	    //this.price = props.price;
+	    this.title = "Two";
 		this.state = {price:props.price, visitor:props.visitor}
 		this.handlePriceOnClick = this.handlePriceOnClick.bind(this);
 		this.handleVisitorOnClick = this.handleVisitorOnClick.bind(this);
+        console.log("###.Inside the Constructor");
 	}
 	
 	
 	
 	componentWillMount() {
+        this.title += " Wheeler";
 		console.log("1.componentWillMount");
 	}
 	
@@ -50,7 +52,7 @@ export class TwoWheeler extends React.Component {
 	}
 	
 	handleVisitorOnClick() {
-		this.props.changeVisitor(this.state.visitor);
+		this.props.changeVisitor("New Visitor");
 		console.log('New Visitor');
 	}
 	
@@ -58,15 +60,21 @@ export class TwoWheeler extends React.Component {
 			this.setState({
 				visitor:event.target.value
 			})
+            
+            setTimeout(
+				() => {
+					this.props.changeVisitor(this.state.visitor);
+				}
+				,2000
+			);
 			  
 	}
 	
-    render() {                     
+    render() {    
+        console.log('### Inside Component - Render()');
         return ( 
-		    <div className="container">
-                <div className="row">
-				    <div className="row">
-						<h1 style={{color:'blue'}}> Two Wheeler </h1>
+		    <div  className="alert alert-warning" >
+						<h1 style={{color:'blue'}}> {this.title} </h1>
 						<ul>
 							<li>
 								<b>Name :</b> {this.props.name}
@@ -92,8 +100,7 @@ export class TwoWheeler extends React.Component {
 						 </div>
 					
 					</div>
-				</div>
-				</div>
+				 
       
         );
     } 
