@@ -15,10 +15,6 @@ class App extends React.Component {
 		this.handleMountOnChange = this.handleMountOnChange.bind(this);
 	}
 	
-	greetCustomer() {
-		alert("Hello");		
-	}
-	
 	handleVisitor(name) {
 		this.setState({
 			visitor:name
@@ -42,7 +38,6 @@ class App extends React.Component {
 							       name="Enfield Classic" 
 								   specs={twoWheelSpecs} 
 								   price="0"  
-								   greet={this.greetCustomer} 
 								   visitor={this.state.visitor}
 								   changeVisitor={this.handleVisitor}/>);
 		}
@@ -59,7 +54,12 @@ class App extends React.Component {
             
 				   <div className="row">
                       <div className="col-xs-10 col-xs-offset-1" >
-							
+							<FourWheeler
+                                 name="Enfield Classic" 
+								   specs={fourWheelSpecs} 
+								 price="500000"  
+								visitor={this.state.visitor}
+                                    />
 						</div>
 					</div>
 					

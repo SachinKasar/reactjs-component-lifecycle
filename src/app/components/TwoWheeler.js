@@ -95,7 +95,7 @@ export class TwoWheeler extends React.Component {
 						 <b>New Visitor : </b><input type="text" value={this.state.visitor} onChange={(event) => this.handleOnChange(event) } />
 						 <br/><br/><div className="btn-group btn-group-sm">
 							<button onClick={this.handlePriceOnClick} className="btn btn-primary" >Get New Price</button>
-							<button onClick={this.props.greet} className="btn btn-primary" >Greet Customer</button>
+						
 							<button onClick={this.handleVisitorOnClick} className="btn btn-primary" >Change Visitor</button>
 						 </div>
 					
